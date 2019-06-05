@@ -18,7 +18,7 @@ const useDataFetch = (initialData, initialUrl) => {
         const response = await axios(url);
 
         if (!didCancel) {
-          setData({ items: response.data.results, count: response.data.count });
+          setData({ items: response.data.results, totalItems: response.data.count });
         }
       } catch (error) {
         if (!didCancel) {

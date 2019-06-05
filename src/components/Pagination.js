@@ -1,25 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Pagination = ({ count }) => {
-  const [offset, setOffset] = useState(0);
-  const [totalPages, setTotalPages] = useState(10);
-
-  const countPages = () => {
-    return Math.ceil(count / 20);
+const Pagination = ({ totalItems, pageLimit = 20, handlePageNumber }) => {
+  const totalPages = () => {
+    return Math.ceil(totalItems / pageLimit);
   };
-  
+
   const pageNumbers = [];
-    for (let i = 1; i <= countPages(); i++) {
-      pageNumbers.push(i);
+  for (let i = 1; i <= totalPages(); i++) {
+    pageNumbers.push(i);
   }
 
   return (
     <ul>
-      {pageNumbers.map(pageNumber => (
+      {pageNumbers.map((pageNumber) => (
         <li
           key={pageNumber}
           id={pageNumber}
-          onClick={event => setOffset(event.target.id * 20 - 20)}
+          onClick={(event) =>
+            handlePageNumber(event.target.id * pageLimit - pageLimit)
+          }
           style={{
             display: 'inline-block',
             marginRight: '10px',
