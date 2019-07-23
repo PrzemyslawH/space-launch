@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Pagination = ({ totalItems, handleOffset, offset, itemsLimit = 20 }) => {
+const Pagination = ({ totalItems, handleOffset, itemsLimit = 20 }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = () => {
@@ -37,12 +37,12 @@ const Pagination = ({ totalItems, handleOffset, offset, itemsLimit = 20 }) => {
   };
 
   const handleClickLeft = () => {
-    handleOffset(offset - itemsLimit * 3);
+    handleOffset(currentPage * itemsLimit - 4 * itemsLimit);
     setCurrentPage(Number(currentPage) - 3);
   };
 
   const handleClickRight = () => {
-    handleOffset(offset + itemsLimit * 3);
+    handleOffset(currentPage * itemsLimit + 4 * itemsLimit);
     setCurrentPage(Number(currentPage) + 3);
   };
 
@@ -79,8 +79,6 @@ const Pagination = ({ totalItems, handleOffset, offset, itemsLimit = 20 }) => {
           );
         })}
       </ul>
-      <p>{`Current page: ${currentPage}`}</p>
-      {offset}
     </nav>
   );
 };

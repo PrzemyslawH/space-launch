@@ -25,7 +25,6 @@ const AgenciesFetch = () => {
       <Pagination
         totalItems={data.totalItems}
         handleOffset={setOffset}
-        offset={offset}
         itemsLimit={itemsLimit}
       />
 
