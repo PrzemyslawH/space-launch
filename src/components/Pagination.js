@@ -42,7 +42,7 @@ const Pagination = ({ totalItems, handleOffset, itemsLimit = 20 }) => {
   };
 
   const handleClickRight = () => {
-    handleOffset(currentPage * itemsLimit + 4 * itemsLimit);
+    handleOffset(currentPage * itemsLimit + 2 * itemsLimit);
     setCurrentPage(Number(currentPage) + 3);
   };
 
