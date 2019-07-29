@@ -1,12 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react';
 
 import useDataFetch from 'hooks/useDataFetch';
-import API from 'services/api';
+import API from 'services/API';
 import Error from 'components/Error';
 import Loading from 'components/Loading';
 import Pagination from 'components/Pagination';
 
-const AgenciesFetch = () => {
+const Agencies = () => {
   const [{ data, isLoading, isError }, doFetch] = useDataFetch(
     { items: [], totalItems: 0 },
     API.agencies
@@ -22,12 +22,6 @@ const AgenciesFetch = () => {
     <Fragment>
       {isError && <Error />}
 
-      <Pagination
-        totalItems={data.totalItems}
-        handleOffset={setOffset}
-        itemsLimit={itemsLimit}
-      />
-
       {isLoading ? (
         <Loading />
       ) : (
@@ -41,8 +35,14 @@ const AgenciesFetch = () => {
           </ul>
         </Fragment>
       )}
+
+      <Pagination
+        totalItems={data.totalItems}
+        handleOffset={setOffset}
+        itemsLimit={itemsLimit}
+      />
     </Fragment>
   );
 };
 
-export default AgenciesFetch;
+export default Agencies;
