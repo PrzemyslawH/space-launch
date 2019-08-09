@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 
 import useDataFetch from 'hooks/useDataFetch';
-import API from 'services/API';
+import API, { offset, limit } from 'services/API';
 import Error from 'components/Error';
 import Loading from 'components/Loading';
 import Pagination from 'components/Pagination';
@@ -11,12 +11,12 @@ const Agencies = () => {
     { items: [], totalItems: 0 },
     API.agencies
   );
-  const [offset, setOffset] = useState(0);
+  const [itemsOffset, setItemsOffset] = useState(0);
   const itemsLimit = 20;
 
   useEffect(() => {
-    doFetch(API.agencies + `&offset=${offset}&limit=${itemsLimit}`);
-  }, [offset]);
+    doFetch(API.agencies + offset(itemsOffset) + limit(itemsLimit));
+  }, [itemsOffset]);
 
   return (
     <Fragment>
@@ -38,7 +38,7 @@ const Agencies = () => {
 
       <Pagination
         totalItems={data.totalItems}
-        handleOffset={setOffset}
+        handleOffset={setItemsOffset}
         itemsLimit={itemsLimit}
       />
     </Fragment>

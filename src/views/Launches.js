@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LaunchesView = () => {
+const Launches = () => {
   return (
     <div>
       <p>Launches</p>
@@ -8,4 +8,4 @@ const LaunchesView = () => {
   );
 };
 
-export default LaunchesView;
+export default Launches;

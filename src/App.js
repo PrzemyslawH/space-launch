@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-import HomeView from 'views/HomeView';
-import LaunchesView from 'views/LaunchesView';
-import AgenciesView from 'views/AgenciesView';
+import Home from 'views/Home';
+import Launches from 'views/Launches';
+import AgenciesView from 'views/Agencies';
 import NotFound from 'views/NotFound';
 
 function App() {
@@ -20,9 +20,9 @@ function App() {
             </ul>
           </nav>
           <Switch>
-            <Route exact path="/" component={HomeView} />
+            <Route exact path="/" component={Home} />
             <Route path="/agencies" component={AgenciesView} />
-            <Route path="/launches" component={LaunchesView} />
+            <Route path="/launches" component={Launches} />
             <Route component={NotFound} />
           </Switch>
         </div>
