@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react';
 
-import useDataFetch from 'hooks/useDataFetch';
-import API, { offset, limit } from 'services/API';
-import Error from 'components/Error';
-import Loading from 'components/Loading';
-import Pagination from 'components/Pagination';
+import useDataFetch from '../hooks/useDataFetch';
+import API, { offset, limit } from '../services/API';
+import Error from '../components/Error';
+import Loading from '../components/Loading';
+import Pagination from '../components/Pagination';
 
 const Agencies = () => {
   const [{ data, isLoading, isError }, doFetch] = useDataFetch(
@@ -25,17 +25,16 @@ const Agencies = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <Fragment>
-          <ul>
-            {data.items.map((item) => (
-              <li key={item.id}>
-                <a href="/">{item.name}</a>
-              </li>
-            ))}
-          </ul>
-        </Fragment>
+        <ul>
+          {data.items.map((item) => (
+            <li key={item.id}>
+              <a href={item.url} target="_blank" rel="noopener noreferrer">
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
       )}
-
       <Pagination
         totalItems={data.totalItems}
         handleOffset={setItemsOffset}

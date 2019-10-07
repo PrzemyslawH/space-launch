@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Error = () => {
   return (
@@ -6,6 +6,6 @@ const Error = () => {
       <h3>Houston, we have a problem!</h3>
     </div>
   )
-}
+};
 
-export default Error
+export default Error;

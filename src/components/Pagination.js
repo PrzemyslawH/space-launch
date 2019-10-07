@@ -32,16 +32,19 @@ const Pagination = ({ totalItems, handleOffset, itemsLimit = 20 }) => {
   };
 
   const handleClick = (e) => {
+    e.preventDefault();
     handleOffset(e.target.id * itemsLimit - itemsLimit);
     setCurrentPage(e.target.id);
   };
 
-  const handleClickLeft = () => {
+  const handleClickLeft = (e) => {
+    e.preventDefault();
     handleOffset(currentPage * itemsLimit - 4 * itemsLimit);
     setCurrentPage(Number(currentPage) - 3);
   };
 
-  const handleClickRight = () => {
+  const handleClickRight = (e) => {
+    e.preventDefault();
     handleOffset(currentPage * itemsLimit + 2 * itemsLimit);
     setCurrentPage(Number(currentPage) + 3);
   };

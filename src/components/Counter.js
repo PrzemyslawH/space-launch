@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 const Counter = ({ upcomingLaunchDate }) => {
   const [remainingTime, setRemainingTime] = useState({
-    days: '',
-    hours: '',
-    min: '',
-    sec: '',
+    days: '--',
+    hours: '--',
+    min: '--',
+    sec: '--',
   });
 
   const calculateCountdown = (endDate) => {
@@ -36,8 +36,6 @@ const Counter = ({ upcomingLaunchDate }) => {
   });
 
   const { days, hours, min, sec } = remainingTime;
-
-  if (days === '') return null;
 
   return (
     <div>
