@@ -3,12 +3,12 @@ import React from 'react';
 import API from '../services/API';
 import ItemsList from '../components/list/ItemsList';
 
-const Agencies = () => {
+const Astronauts = () => {
   return (
     <>
-      <ItemsList query={API.agencies} />
+      <ItemsList query={API.astronauts} />
     </>
   );
 };
 
-export default Agencies;
+export default Astronauts;

@@ -52,7 +52,7 @@ const Pagination = ({ totalItems, handleOffset, itemsLimit = 20 }) => {
   if (!totalItems || totalItems <= itemsLimit) return null;
 
   return (
-    <nav>
+    <div>
       <ul>
         {paginationPages().map((paginationPage, index) => {
           if (paginationPage === '«')
@@ -82,7 +82,7 @@ const Pagination = ({ totalItems, handleOffset, itemsLimit = 20 }) => {
           );
         })}
       </ul>
-    </nav>
+    </div>
   );
 };
 

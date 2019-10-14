@@ -1,11 +1,12 @@
 import React from 'react';
 import Nav from './components/Nav';
+import Logo from './components/Logo';
 
 function App() {
   return (
     <div>
-      <h1>Space-launch app is coming...</h1>
-      <Nav/>
+      <Logo />
+      <Nav />
     </div>
   );
 }
