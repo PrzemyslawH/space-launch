@@ -1,17 +1,20 @@
-const CORS_UNLOCK = `https://cors-anywhere.herokuapp.com/`;
-const BASE_API = `https://spacelaunchnow.me/api/3.3.0/`;
-const ORDER_BY_NAME = '/?ordering=name';
-const ORDER_BY_NET_ASCENDING = '/?ordering=net';
-const ORDER_BY_NET_DESCENDING = '/?ordering=-net';
-
-export const offset = (offset) => `&offset=${offset}`;
+const API_URL = `https://spacelaunchnow.me/api/3.3.0/`;
 
 export default {
-  agencies: CORS_UNLOCK + BASE_API + 'agencies' + ORDER_BY_NAME,
-  astronauts: CORS_UNLOCK + BASE_API + 'astronaut' + ORDER_BY_NAME,
-  spacestation: CORS_UNLOCK + BASE_API + 'spacestation' + ORDER_BY_NAME,
+  agencies: API_URL + 'agencies/',
+  astronauts: API_URL + 'astronaut/',
+  spacestations: API_URL + 'spacestation/',
   launches: {
-    upcoming: CORS_UNLOCK + BASE_API + 'launch/upcoming' + ORDER_BY_NET_ASCENDING,
-    previous: CORS_UNLOCK + BASE_API + 'launch/previous' + ORDER_BY_NET_DESCENDING,
+    all: API_URL + 'launch/',
+    upcoming: API_URL + 'launch/upcoming/',
+    previous: API_URL + 'launch/previous/',
   },
 };
+
+export const order = {
+  by_name: '?ordering=name',
+  by_net_ascending: '?ordering=net',
+  by_net_descending: '?ordering=-net',
+};
+
+export const offset = (offset) => `&offset=${offset}`;

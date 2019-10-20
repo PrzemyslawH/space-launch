@@ -5,7 +5,7 @@ const Error = () => {
     <div>
       <h3>Houston, we have a problem!</h3>
     </div>
-  )
+  );
 };
 
 export default Error;

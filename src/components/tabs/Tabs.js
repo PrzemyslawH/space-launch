@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import TabList from './TabList';
 
-import ItemsList from '../list/ItemsList';
-
-const Tabs = ({ initialTabsData }) => {
+const Tabs = ({ initialTabsData, data, children }) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
-  const [tabsData, setTabsData] = useState(initialTabsData[0].content);
 
   const handleTabClick = (index) => {
     setActiveTabIndex(index);
-    setTabsData(initialTabsData[index].content);
+    data(initialTabsData[index].content);
   };
 
   return (
@@ -19,7 +16,7 @@ const Tabs = ({ initialTabsData }) => {
         tabsData={initialTabsData}
         handleTabClick={handleTabClick}
       />
-      <ItemsList query={tabsData}/>
+      {children}
     </>
   );
 };

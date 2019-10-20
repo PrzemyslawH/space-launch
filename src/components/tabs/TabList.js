@@ -3,7 +3,7 @@ import Tab from './Tab';
 
 const TabList = ({ activeTabIndex, tabsData, handleTabClick }) => {
   return (
-    <div>
+    <>
       {tabsData.map(({ label }, index) => {
         const isActive = activeTabIndex === index;
 
@@ -17,7 +17,7 @@ const TabList = ({ activeTabIndex, tabsData, handleTabClick }) => {
           />
         );
       })}
-    </div>
+    </>
   );
 };
 

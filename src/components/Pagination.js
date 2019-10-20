@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { DataContext } from './context/DataProvider';
 
-const Pagination = ({ totalItems, handleOffset, itemsLimit = 20 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const Pagination = ({ handleOffset, itemsLimit = 20, offset }) => {
+  const initialPage = (offset + itemsLimit) / itemsLimit;
+  console.log(initialPage);
+
+  const [currentPage, setCurrentPage] = useState(initialPage);
+
+  const totalItems = useContext(DataContext).count;
 
   const totalPages = () => {
     return Math.ceil(totalItems / itemsLimit);
@@ -14,7 +20,10 @@ const Pagination = ({ totalItems, handleOffset, itemsLimit = 20 }) => {
 
   const paginationPages = () => {
     const leftPages = [1, '«'];
-    const middlePages = pages.slice(Number(currentPage) - 2, Number(currentPage) + 1);
+    const middlePages = pages.slice(
+      Number(currentPage) - 2,
+      Number(currentPage) + 1
+    );
     const rightPages = ['»', totalPages()];
 
     const pagesWithLeft = [...leftPages, ...pages.slice(totalPages() - 5)];

@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { DataContext } from './context/DataProvider';
 
-const Counter = ({ upcomingLaunchDate }) => {
+const Counter = () => {
+  const upcomingLaunchDate = useContext(DataContext).results[0].net;
+
   const [remainingTime, setRemainingTime] = useState({
     days: '--',
     hours: '--',
