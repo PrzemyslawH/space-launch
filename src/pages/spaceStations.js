@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 
 import SpaceStationsList from '../components/spacestations/SpaceStationsList';
 import DataProvider from '../components/context/DataProvider';
-import API, { offset, order } from '../services/API';
+import api, { offset, order } from '../services/api';
 import Pagination from '../components/Pagination';
 
-const SpaceStationsPage = () => {
+const SpaceStations = () => {
   const [itemsOffset, setItemsOffset] = useState(0);
 
   return (
     <DataProvider
-      query={API.spacestations + order.by_name + offset(itemsOffset)}
+      query={api.spacestations + order.by_name + offset(itemsOffset)}
     >
       <SpaceStationsList />
       <Pagination handleOffset={setItemsOffset} offset={itemsOffset} />
@@ -18,4 +18,4 @@ const SpaceStationsPage = () => {
   );
 };
 
-export default SpaceStationsPage;
+export default SpaceStations;

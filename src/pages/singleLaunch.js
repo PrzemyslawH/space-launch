@@ -2,17 +2,17 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import DataProvider from '../components/context/DataProvider';
-import API from '../services/API';
+import api from '../services/api';
 import Launch from '../components/launches/Launch';
 
-const SingleLaunchPage = () => {
+const SingleLaunch = () => {
   const { id } = useParams();
 
   return (
-    <DataProvider query={API.launches.all + id}>
+    <DataProvider query={api.launches.all + id}>
       <Launch />
     </DataProvider>
   );
 };
 
-export default SingleLaunchPage;
+export default SingleLaunch;

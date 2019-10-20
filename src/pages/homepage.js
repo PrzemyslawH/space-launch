@@ -2,14 +2,14 @@ import React from 'react';
 
 import Counter from '../components/Counter';
 import DataProvider from '../components/context/DataProvider';
-import API, { order } from '../services/API';
+import api, { order } from '../services/api';
 
-const HomePage = () => {
+const Homepage = () => {
   return (
-    <DataProvider query={API.launches.upcoming + order.by_net_ascending}>
+    <DataProvider query={api.launches.upcoming + order.by_net_ascending}>
       <Counter />
     </DataProvider>
   );
 };
 
-export default HomePage;
+export default Homepage;

@@ -2,17 +2,17 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import DataProvider from '../components/context/DataProvider';
-import API from '../services/API';
+import api from '../services/api';
 import Astronaut from '../components/astronauts/Astronaut';
 
-const SingleAstronautPage = () => {
+const SingleAstronaut = () => {
   const { id } = useParams();
 
   return (
-    <DataProvider query={API.astronauts + id}>
+    <DataProvider query={api.astronauts + id}>
       <Astronaut />
     </DataProvider>
   );
 };
 
-export default SingleAstronautPage;
+export default SingleAstronaut;
