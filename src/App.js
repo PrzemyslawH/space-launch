@@ -12,7 +12,7 @@ import SingleSpaceStationPage from './pages/SingleSpaceStationPage';
 import SingleLaunchPage from './pages/SingleLaunchPage';
 import SingleAstronautPage from './pages/SingleAstronautPage';
 import SingleAgencyPage from './pages/SingleAgencyPage';
-import Nav from './components/Nav';
+import Nav from './components/nav/Nav';
 
 function App() {
   return (
