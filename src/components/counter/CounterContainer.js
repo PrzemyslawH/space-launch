@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { DataContext } from './context/DataProvider';
+import React, { useState, useEffect } from 'react';
 
-const Counter = () => {
-  const upcomingLaunchDate = useContext(DataContext).results[0].net;
+import CounterFlip from './CounterFlip';
 
+const CounterContainer = ({ upcomingLaunchDate }) => {
   const [remainingTime, setRemainingTime] = useState({
-    days: '--',
-    hours: '--',
-    min: '--',
-    sec: '--',
+    days: '-',
+    hours: '-',
+    min: '-',
+    sec: '-',
   });
 
   const calculateCountdown = (endDate) => {
@@ -41,13 +40,13 @@ const Counter = () => {
   const { days, hours, min, sec } = remainingTime;
 
   return (
-    <div>
-      <p>days: {days}</p>
-      <p>hours: {hours}</p>
-      <p>minutes: {min}</p>
-      <p>seconds: {sec}</p>
-    </div>
+    <>
+      <CounterFlip label={'Days'} value={days} />
+      <CounterFlip label={'Hours'} value={hours} />
+      <CounterFlip label={'Minutes'} value={min} />
+      <CounterFlip label={'Seconds'} value={sec} />
+    </>
   );
 };
 
-export default Counter;
+export default CounterContainer;

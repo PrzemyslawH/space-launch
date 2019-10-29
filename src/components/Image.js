@@ -1,20 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Img = styled.img`
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  border-radius: 60px;
+  object-fit: cover;
+`;
 
 const Image = ({ props }) => {
-  return (
-    <div>
-      <img
-        src={props}
-        alt={'no image...'}
-        style={{
-          width: '60px',
-          height: '60px',
-          borderRadius: '60px',
-          objectFit: 'cover',
-        }}
-      />
-    </div>
-  );
+  return <Img src={props} alt={'Image'} />;
 };
 
 export default Image;

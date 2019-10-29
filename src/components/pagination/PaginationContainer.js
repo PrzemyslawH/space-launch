@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { DataContext } from './context/DataProvider';
+import { DataContext } from '../context/DataProvider';
+import { colors } from '../../utils/colors';
 
-const Pagination = ({ handleOffset, itemsLimit = 20, offset }) => {
+const PaginationContainer = ({ handleOffset, itemsLimit = 20, offset }) => {
   const initialPage = (offset + itemsLimit) / itemsLimit;
-  console.log(initialPage);
 
   const [currentPage, setCurrentPage] = useState(initialPage);
 
@@ -61,38 +61,44 @@ const Pagination = ({ handleOffset, itemsLimit = 20, offset }) => {
   if (!totalItems || totalItems <= itemsLimit) return null;
 
   return (
-    <div>
-      <ul>
-        {paginationPages().map((paginationPage, index) => {
-          if (paginationPage === '«')
-            return (
-              <li key={index}>
-                <a href="#" onClick={handleClickLeft}>
-                  {paginationPage}
-                </a>
-              </li>
-            );
-
-          if (paginationPage === '»')
-            return (
-              <li key={index}>
-                <a href="#" onClick={handleClickRight}>
-                  {paginationPage}
-                </a>
-              </li>
-            );
-
+    <ul>
+      {paginationPages().map((paginationPage, index) => {
+        if (paginationPage === '«')
           return (
             <li key={index}>
-              <a href="#" id={paginationPage} onClick={handleClick}>
+              <a href="#" onClick={handleClickLeft}>
                 {paginationPage}
               </a>
             </li>
           );
-        })}
-      </ul>
-    </div>
+
+        if (paginationPage === '»')
+          return (
+            <li key={index}>
+              <a href="#" onClick={handleClickRight}>
+                {paginationPage}
+              </a>
+            </li>
+          );
+
+        return (
+          <li
+            key={index}
+            style={{
+              background:
+                paginationPage === currentPage
+                  ? colors.primary
+                  : null,
+            }}
+          >
+            <a href="#" id={paginationPage} onClick={handleClick}>
+              {paginationPage}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 
-export default Pagination;
+export default PaginationContainer;

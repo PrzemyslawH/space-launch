@@ -1,31 +1,23 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import styled from 'styled-components';
 
-import homepage from '../pages/homepage';
-import launches from '../pages/launches';
-import singleLaunch from '../pages/singleLaunch';
-import agencies from '../pages/agencies';
-import singleAgency from '../pages/singleAgency';
-import astronauts from '../pages/astronauts';
-import singleAstronaut from '../pages/singleAstronaut';
-import spaceStations from '../pages/spaceStations';
-import singleSpaceStation from '../pages/singleSpaceStation';
-import error404 from '../pages/error404';
+import { media } from '../utils/media';
 
-const Main = () => {
+const Wrapper = styled.section`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 30px;
+  
+  @media (max-width: ${media.phone}) {
+    padding: 30px;
+  }
+`;
+
+const Main = ({children}) => {
   return (
-    <Switch>
-      <Route exact path="/" component={homepage} />
-      <Route exact path="/launches" component={launches} />
-      <Route path="/launches/:id" component={singleLaunch} />
-      <Route exact path="/agencies" component={agencies} />
-      <Route path="/agencies/:id" component={singleAgency} />
-      <Route exact path="/astronauts" component={astronauts} />
-      <Route path="/astronauts/:id" component={singleAstronaut} />
-      <Route exact path="/spacestations" component={spaceStations} />
-      <Route path="/spacestations/:id" component={singleSpaceStation} />
-      <Route component={error404} />
-    </Switch>
+    <Wrapper>
+      {children}
+    </Wrapper>
   );
 };
 

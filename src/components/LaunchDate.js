@@ -28,9 +28,9 @@ const LaunchDate = ({ upcomingLaunchDate }) => {
   const { day, month, year } = launchDate;
 
   return (
-    <div>
+    <span>
       {day}/{month}/{year}
-    </div>
+    </span>
   );
 };
 

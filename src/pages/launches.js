@@ -3,8 +3,11 @@ import React, { useState, useEffect } from 'react';
 import LaunchesList from '../components/launches/LaunchesList';
 import DataProvider from '../components/context/DataProvider';
 import api, { offset, order } from '../services/api';
-import Pagination from '../components/Pagination';
+import PaginationContainer from '../components/pagination/PaginationContainer';
 import Tabs from '../components/tabs/Tabs';
+import H1 from '../components/headings/H1';
+import Pagination from '../components/pagination/Pagination';
+import BorderLeft from '../components/BorderLeft';
 
 const initialTabsData = [
   {
@@ -26,12 +29,22 @@ const Launches = () => {
   }, [itemsOffset]);
 
   return (
-    <Tabs initialTabsData={initialTabsData} data={setQuery}>
-      <DataProvider query={query}>
-        <LaunchesList />
-        <Pagination handleOffset={setItemsOffset} offset={itemsOffset} />
-      </DataProvider>
-    </Tabs>
+    <>
+      <BorderLeft>
+        <H1>Launches</H1>
+      </BorderLeft>
+      <Tabs initialTabsData={initialTabsData} data={setQuery}>
+        <DataProvider query={query}>
+          <LaunchesList />
+          <Pagination>
+            <PaginationContainer
+              handleOffset={setItemsOffset}
+              offset={itemsOffset}
+            />
+          </Pagination>
+        </DataProvider>
+      </Tabs>
+    </>
   );
 };
 

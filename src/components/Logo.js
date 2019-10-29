@@ -1,9 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import logo from '../assets/img/logo.svg';
 
 const Logo = () => {
   return (
     <div>
-      <h1>Space-launch app is coming...</h1>
+      <Link to={'/'}>
+        <img src={logo} alt="Space Launch" />
+      </Link>
     </div>
   );
 };
