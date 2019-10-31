@@ -6,7 +6,7 @@ import { media } from '../utils/media';
 
 const Astronaut = styled.div`
   width: 100%;
-  margin-bottom: 120px;
+  margin-bottom: 60px;
 
   @media (max-width: ${media.desktop}) {
     margin-bottom: 50px;

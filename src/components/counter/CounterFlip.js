@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import { colors } from '../../utils/colors';
 
 const Wrapper = styled.div`
-  width: 60px;
+  min-width: 70px;
 `;
 
 const FlipWrapper = styled.div`
   width: 100%;
-  height: 70px;
+  height: 80px;
   font-size: 3.8rem;
   text-align: center;
   display: flex;
@@ -17,6 +17,7 @@ const FlipWrapper = styled.div`
   align-items: center;
   border-radius: 6px;
   margin-bottom: 5px;
+  padding: 0 5px;
   background: ${colors.regular_dark};
 `;
 
