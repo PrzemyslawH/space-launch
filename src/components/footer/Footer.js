@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 import { colors } from '../../utils/colors';
 import FooterText from './FooterText';
+import { media } from '../../utils/media';
 
 const Wrapper = styled.section`
   width: 100%;
-  background: ${colors.full_dark};
+  background: ${colors.medium_dark};
+  grid-row-start: 2;
+  grid-row-end: 3;
 `;
 
 const Container = styled.div`
@@ -17,6 +20,11 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: ${media.phone}) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 const Footer = () => {
@@ -24,7 +32,16 @@ const Footer = () => {
     <Wrapper>
       <Container>
         <FooterText>SL © 2019 - All rights reserved</FooterText>
-        <FooterText>designed & developed by astrofreak</FooterText>
+        <FooterText>
+          designed & developed by{' '}
+          <a
+            href="https://github.com/PrzemyslawH"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            astrofreak
+          </a>
+        </FooterText>
       </Container>
     </Wrapper>
   );

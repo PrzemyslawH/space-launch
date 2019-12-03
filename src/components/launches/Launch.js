@@ -13,6 +13,7 @@ import SectionGrid from '../SectionGrid';
 import SectionDetails from '../SectionDetails';
 import Counter from '../counter/Counter';
 import CounterContainer from '../counter/CounterContainer';
+import Error from '../Error';
 
 const Launch = () => {
   const item = useContext(DataContext);
@@ -20,10 +21,10 @@ const Launch = () => {
   const { name, pad, net, status, rocket, mission } = item;
 
   const showCounter = () => {
-    let todayMilis = Date.parse(new Date());
-    let launchMilis = Date.parse(net);
+    let todayMillis = Date.parse(new Date());
+    let launchMillis = Date.parse(net);
 
-    if (launchMilis > todayMilis) return true;
+    if (launchMillis > todayMillis) return true;
   };
 
   return (
@@ -53,49 +54,55 @@ const Launch = () => {
         </SectionDetails>
       </SectionGrid>
 
-      <SectionGrid>
-        <div>
-          <BorderLeft>
-            <H3>Rocket</H3>
-          </BorderLeft>
-        </div>
-        <SectionDetails>
-          <H4>Name</H4>
-          <Info>{rocket.configuration.name}</Info>
-          <H4>Launch service provider</H4>
-          <Info>{rocket.configuration.launch_service_provider.name}</Info>
-        </SectionDetails>
-      </SectionGrid>
+      {rocket && (
+        <SectionGrid>
+          <div>
+            <BorderLeft>
+              <H3>Rocket</H3>
+            </BorderLeft>
+          </div>
+          <SectionDetails>
+            <H4>Name</H4>
+            <Info>{rocket.configuration.name}</Info>
+            <H4>Launch service provider</H4>
+            <Info>{rocket.configuration.launch_service_provider.name}</Info>
+          </SectionDetails>
+        </SectionGrid>
+      )}
 
-      <SectionGrid>
-        <div>
-          <BorderLeft>
-            <H3>Mission</H3>
-          </BorderLeft>
-        </div>
-        <SectionDetails>
-          <H4>Name</H4>
-          <Info>{mission.name}</Info>
-          <H4>Type</H4>
-          <Info>{mission.type}</Info>
-          <H4>Description</H4>
-          <Description>{mission.description}</Description>
-        </SectionDetails>
-      </SectionGrid>
+      {mission && (
+        <SectionGrid>
+          <div>
+            <BorderLeft>
+              <H3>Mission</H3>
+            </BorderLeft>
+          </div>
+          <SectionDetails>
+            <H4>Name</H4>
+            <Info>{mission.name}</Info>
+            <H4>Type</H4>
+            <Info>{mission.type}</Info>
+            <H4>Description</H4>
+            <Description>{mission.description}</Description>
+          </SectionDetails>
+        </SectionGrid>
+      )}
 
-      <SectionGrid>
-        <div>
-          <BorderLeft>
-            <H3>Pad</H3>
-          </BorderLeft>
-        </div>
-        <SectionDetails>
-          <H4>Name</H4>
-          <Info>{pad.name}</Info>
-          <H4>Location</H4>
-          <Info>{pad.location.name}</Info>
-        </SectionDetails>
-      </SectionGrid>
+      {rocket && (
+        <SectionGrid>
+          <div>
+            <BorderLeft>
+              <H3>Pad</H3>
+            </BorderLeft>
+          </div>
+          <SectionDetails>
+            <H4>Name</H4>
+            <Info>{pad.name}</Info>
+            <H4>Location</H4>
+            <Info>{pad.location.name}</Info>
+          </SectionDetails>
+        </SectionGrid>
+      )}
     </>
   );
 };

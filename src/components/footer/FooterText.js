@@ -3,7 +3,12 @@ import styled from 'styled-components';
 
 const Text = styled.p`
   font-size: 1.4rem;
-  opacity: 0.2;
+  opacity: .2;
+  transition: border .2s ease-in-out;
+  
+  a:hover {
+    border-bottom: 1px solid white;
+  }
 `;
 
 const FooterText = ({ children }) => {

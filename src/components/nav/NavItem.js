@@ -8,7 +8,6 @@ const Item = styled.a`
   font-size: 1.6rem;
   margin-left: 40px;
   padding: 5px 0;
-  transition: opacity 0.2s ease-in-out;
   position: relative;
 
   &:after {

@@ -22,7 +22,7 @@ const AgenciesList = () => {
                 <H2>{name}</H2>
                 <ItemSubtitle props={country_code} />
               </div>
-              <div style={{ 'text-align': 'right' }}>
+              <div style={{ 'textAlign': 'right' }}>
                 {founding_year && <H4 right>Founding Year</H4>}
                 <BigText right>{founding_year}</BigText>
               </div>
